@@ -33,7 +33,7 @@ public class HelloWorld {
         JsonObject response = new JsonObject();
         String name = args.getAsJsonObject("request").getAsJsonObject("intent")
 				.getAsJsonObject("slots").getAsJsonObject("Text").getAsJsonPrimitive("value").getAsString();
-        String speechText = "Hello " + name + ". Welcome to the Openwhisk Alexa program";
+        String speechText = "Hello " + name + ". Welcome to the Openwhisk program";
 
         response.addProperty("version", args.getAsJsonPrimitive("version").getAsString());
         
