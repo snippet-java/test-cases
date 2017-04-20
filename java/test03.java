@@ -4,28 +4,21 @@ import com.google.gson.JsonParser;
 public class HelloWorld {
 
 	private static String parameters = 
-		"{\"name\":\"World\"}";
+			"{\"request\":"
+			+ "	{\"intent\":"
+			+ "		{\"slots\":"
+			+ "			{\"Text\":"
+			+ "				{\"value\":\"World\"}"
+			+ "			}"
+			+ "		}"
+			+ "	},"
+			+ "\"version\": \"local-version\""
+			+ "}";
 	
 	public static void main(String[] args) {
-		JsonObject arg = new JsonObject();
-		arg.addProperty("version", "local-version");
-		
-		//construct a alexa-like request
-		JsonObject request = new JsonObject();
-		JsonObject intent = new JsonObject();
-		JsonObject slots = new JsonObject();
-		JsonObject text = new JsonObject();
-		JsonParser parser = new JsonParser();
-		text.addProperty("value", 
-				parser.parse(parameters).getAsJsonObject().getAsJsonPrimitive("name").getAsString());
-		slots.add("Text", text);
-		intent.add("slots", slots);
-		request.add("intent", intent);
-		arg.add("request", request);
-		
+		JsonObject arg = new JsonParser().parse(parameters).getAsJsonObject();
 		JsonObject response = HelloWorld.main(arg);
-		System.out.println(response.getAsJsonObject("response").getAsJsonObject("outputSpeech")
-				.getAsJsonPrimitive("text").getAsString());
+		System.out.println(response);
 	}
 	
 	public static JsonObject main(JsonObject args) {
