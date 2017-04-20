@@ -1,6 +1,5 @@
-var params = {
+var parameters = {
 	request : {
-		type : "RawText",
 		intent : {
 			name : "RawText",
 			slots : { Text : { value : "Echo!" } }
@@ -11,15 +10,12 @@ var params = {
 function main(params) {
 	var replyText = "Please say the phrase that you want me to repeat.";
 	if (params.request.type != "LaunchRequest") {
-		var intent = params.request.intent;
-		var sessionAttributes = params.session.attributes;
+		const intent = params.request.intent;
 		
 		if (intent.name == "RawText")
 			replyText = intent.slots.Text.value.toLowerCase().replace(/\W\s/g, '');
 	}
 	
-	console.log("replyText : " + replyText);
-
 	var outputSpeech = {
 		"type": "SSML",
 		"ssml": "<speak>" + replyText + "</speak>"
@@ -35,6 +31,6 @@ function main(params) {
 	}
 }
 
-if (require.main === module) main(params);
+if (require.main === module) console.log(JSON.stringify(main(parameters),null,2));
 
 exports.main = main;
