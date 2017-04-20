@@ -1,3 +1,13 @@
+var params = {
+	request : {
+		type : "RawText",
+		intent : {
+			name : "RawText",
+			slots : { Text : { value : "Echo!" } }
+		}
+	}
+}
+
 function main(params) {
 	var replyText = "Please say the phrase that you want me to repeat.";
 	if (params.request.type != "LaunchRequest") {
@@ -24,5 +34,7 @@ function main(params) {
 		}
 	}
 }
+
+if (require.main === module) main(params);
 
 exports.main = main;
