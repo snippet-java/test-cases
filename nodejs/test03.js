@@ -8,6 +8,9 @@ var parameters = {
 }
 
 function main(params) {
+	if (typeof params.request == "undefined")
+		params.request = parameters.request;
+	
 	var replyText = "Please say the phrase that you want me to repeat.";
 	if (params.request.type != "LaunchRequest") {
 		const intent = params.request.intent;
