@@ -6,7 +6,7 @@ import com.ibm.watson.developer_cloud.language_translator.v2.model.TranslationRe
 
 public class test04Translator {
 
-	public String parameters = "{\"text\":\"hello my lover\",\"fromLanguage\":\"ENGLISH\",\"toLanguage\":\"SPANISH\"}";
+	public String parameters = "{\"text\":\"hello my friend\",\"fromLanguage\":\"ENGLISH\",\"toLanguage\":\"SPANISH\"}";
 	
 	public static void main(String[] args) {
 		test04Translator test = new test04Translator();
