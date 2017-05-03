@@ -19,7 +19,6 @@ public class test04Translator {
 		JsonParser parser = new JsonParser(); 
 		LanguageTranslator service = new LanguageTranslator();
 		
-		//Get from watson_cred
         JsonObject cred = new JsonParser().parse(System.getProperty("env")).getAsJsonObject()
         		.getAsJsonArray("language_translator").get(0).getAsJsonObject().getAsJsonObject("credentials");
         service.setUsernameAndPassword(cred.getAsJsonPrimitive("username").getAsString(), cred.getAsJsonPrimitive("password").getAsString());
