@@ -3,7 +3,7 @@ var parameters = {
     "text2": "hello world 2",
     "text3": "hello world 3"
 }
-const templateUrl = "https://gist.githubusercontent.com/snippet-java/fd3aa1c2ab893bf8e1bcd90073ceab99/raw/d3bf1ddae4ca29b3ba1f8d4e851491f5869145dd/superglue.html";
+const templateUrl = "https://gist.githubusercontent.com/snippet-java/fd3aa1c2ab893bf8e1bcd90073ceab99/raw";
 
 function main(params) {
     if (params.__ow_method == "get") {
