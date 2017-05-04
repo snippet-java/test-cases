@@ -3,6 +3,7 @@ var parameters = {
     "text2": "hello world 2",
     "text3": "hello world 3"
 }
+const request = require("request");
 const templateUrl = "https://gist.githubusercontent.com/snippet-java/fd3aa1c2ab893bf8e1bcd90073ceab99/raw";
 
 function main(params) {
