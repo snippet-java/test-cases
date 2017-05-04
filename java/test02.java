@@ -1,5 +1,5 @@
 import java.util.*;
-public class Test {
+public class test02 {
   public static void main(String[] args) {
     String phrase = "this is a reversed phrase";
     List<String> list = Arrays.asList(phrase.split(" "));

@@ -1,7 +1,7 @@
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 
-public class HelloWorld {
+public class test03 {
 
 	private static String parameters = 
 			"{\"request\":"
@@ -17,7 +17,7 @@ public class HelloWorld {
 	
 	public static void main(String[] args) {
 		JsonObject arg = new JsonParser().parse(parameters).getAsJsonObject();
-		JsonObject response = HelloWorld.main(arg);
+		JsonObject response = test03.main(arg);
 		System.out.println(response);
 	}
 	
