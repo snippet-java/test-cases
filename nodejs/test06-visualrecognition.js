@@ -33,28 +33,17 @@ function main(params) {
 function faces(params, cb) {
     const watson = require('watson-developer-cloud');
 
-    var visual_recognition;
-    if (params.api_key != null && params.api_key != "") {
-        visual_recognition = watson.visual_recognition({
-            api_key: params.api_key,
-            version: 'v3',
-            version_date: '2016-05-19'
-        });
-    } else if (process.env.services) {
-        var services = JSON.parse(process.env.services);
-        if (services.language_translator && services.watson_vision_combined[0] && services.watson_vision_combined[0].credentials) {
-            var credentials = services.watson_vision_combined[0].credentials;
-            visual_recognition = watson.visual_recognition({
-                api_key: credentials.api_key,
-                version: 'v3',
-                version_date: '2016-05-19'
-            });
-        } else {
-            return cb({ err: "missing credentials" });
-        }
-    } else {
-        return cb({ err: "missing credentials" });
+    var credentials = {
+        version: 'v3',
+        version_date: '2016-05-19'
     }
+    if (params.api_key != "")
+        credentials.api_key = params.api_key;
+    var visual_recognition = watson.visual_recognition({
+        api_key: params.api_key,
+        version: 'v3',
+        version_date: '2016-05-19'
+    });
 
     visual_recognition.detectFaces(params, function (err, response) {
         if (err)
