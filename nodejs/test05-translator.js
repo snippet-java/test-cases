@@ -15,10 +15,10 @@ function main(params) {
         for (i in parameters) {
             inputs += "<input name='" + i + "' placeholder='" + i + "' value='" + parameters[i] + "' style='width:100%; padding:10px'><br/>"
         }
-        
+
         return new Promise(function (resolve, reject) {
-            request(templateUrl, function(err, res, body) {
-                return resolve({html:body.replace("{{inputs}}", inputs)});
+            request(templateUrl, function (err, res, body) {
+                return resolve({ html: body.replace("{{inputs}}", inputs) });
             })
         });
     }
@@ -37,27 +37,15 @@ function main(params) {
 function translate(params, cb) {
     const watson = require('watson-developer-cloud');
 
-    var language_translator;
-
-    if (params.username != null && params.username != "" && params.password != null && params.password != "" && params.url != null && params.url != "") {
-        var credentials = {
-            username: params.username,
-            password: params.password,
-            url: params.url,
-            version: 'v2'
-        }
-        language_translator = watson.language_translator(credentials);
-    } else if (process.env.services) {
-        var services = JSON.parse(process.env.services);
-        if (services.language_translator && services.language_translator[0] && services.language_translator[0].credentials) {
-            var credentials = services.language_translator[0].credentials;
-            language_translator = watson.language_translator(credentials);
-        } else {
-            return cb({ err: "missing credentials" });
-        }
-    } else {
-        return cb({ err: "missing credentials" });
+    var credentials = {
+        url: params.url,
+        version: 'v2'
     }
+    if (params.username != "" && params.password != "") {
+        credentials.username = params.username;
+        credentials.password = params.password;
+    }
+    var language_translator = watson.language_translator(credentials);
 
     var options = {
         text: params.text,
