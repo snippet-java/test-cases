@@ -25,7 +25,7 @@ public class test08VisualRecognitionWithSuperGlue {
 
 	private final String htmlGistUrl = "https://gist.githubusercontent.com/snippet-java/fd3aa1c2ab893bf8e1bcd90073ceab99/raw";
 	
-	public String parameters = "{\"api_key\":\"\","
+	public String parameters = "{\"api_key\":\"cf8ff9af4fd5323e190b6df6b730ab4919464c73\","
 			+ "\"url\":\"https://www.whitehouse.gov/sites/whitehouse.gov/files/images/first-family/44_barack_obama%5B1%5D.jpg\"}";
 	
 	public static void main(String[] args) {
