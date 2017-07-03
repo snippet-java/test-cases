@@ -26,11 +26,6 @@ public class test05VisualRecognition {
 		JsonParser parser = new JsonParser(); 
 		VisualRecognition service = new VisualRecognition(VisualRecognition.VERSION_DATE_2016_05_20);
 		
-		//Get from watson_cred
-        JsonObject cred = new JsonParser().parse(System.getProperty("env")).getAsJsonObject()
-        		.getAsJsonArray("watson_vision_combined").get(0).getAsJsonObject().getAsJsonObject("credentials");
-        service.setApiKey(cred.getAsJsonPrimitive("api_key").getAsString()); 
-	
         File fileA = new File("test.jpg"); 
 	    URL url = null;
 		try {
